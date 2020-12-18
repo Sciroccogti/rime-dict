@@ -8,7 +8,7 @@
 
 # 使用
 
-各平台配置文件路径
+各平台用户文件夹路径
 
 - Windows
   - Weasel: %APPDATA%\Rime
@@ -18,7 +18,17 @@
   - iBus: ~/.config/ibus/rime
   - Fcitx: ~/.config/fcitx/rime
 
-将本源中的所有内容复制到 Rime 输入法相关的词库目录下，重新部署即可
+
+1. 克隆 / 解压本项目
+2. 修改并运行 `python3 merge.py`
+3. 将 `luna_pinyin.extended.yaml` 复制到上述 *用户文件夹内*
+4. 在 `luna_pinyin.custom.yaml` 中添加:
+    ```
+    patch:
+      translator/dictionary: luna_pinyin.extended
+    ```
+5. 重新部署即可
+
 这个库收集了许多 rime 词库，具体用法见[官网](http://rime.im/)
 
 配置可以参考我的另一个仓库[rime-setting](https://github.com/Iorest/rime-setting)
